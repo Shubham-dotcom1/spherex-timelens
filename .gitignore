@@ -1,0 +1,31 @@
+# Python & Virtual Environments
+backend/venv/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.pytest_cache/
+
+# Large Astronomical Data & Reference Clones
+*.fits
+*.fits.gz
+research/repos/
+research/feasibility/*.fits
+cache/
+data/raw/
+
+# Node.js & Frontend Build Outputs
+frontend/node_modules/
+node_modules/
+dist/
+build/
+.next/
+*.tsbuildinfo
+
+# OS and Environment
+.env
+.env.local
+.DS_Store
+Thumbs.db
+*.log
