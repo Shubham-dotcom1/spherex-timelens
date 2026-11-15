@@ -234,9 +234,3 @@ Detailed engineering and astronomical documentation is located in [`docs/`](file
 * [Licensing & Attribution](file:///d:/My%20Creation/spherex-timelens/docs/LICENSING_AND_ATTRIBUTION.md) — Open source licenses and NASA/IPAC data citations.
 
 ---
-
-## ⚖️ 8. Zero Plagiarism & Clean-Room Declaration
-
-All source code in **SPHEREx TimeLens** was clean-room designed and independently developed by **Team CodeGenesis**. No source code was copied or duplicated from reference repositories. NASA SPHEREx mission data is retrieved in accordance with NASA/IPAC IRSA public archive terms.
-
-Developed with pride for the **NASA Space Apps Challenge 2026**.
