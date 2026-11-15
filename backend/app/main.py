@@ -10,13 +10,19 @@ from backend.app.spectroscopy.wave_calibrator import wave_calibrator
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup: Load local genuine SPHEREx FITS product if available
-    local_fits = Path("research/feasibility/sample_level2_1D4.fits")
-    if local_fits.exists():
-        try:
-            wave_calibrator.load_fits(local_fits)
-            print(f"[Lifespan] Loaded WCS-WAVE calibrator from {local_fits}")
-        except Exception as e:
-            print(f"[Lifespan] Notice: Could not load WCS-WAVE on startup: {e}")
+    _root = Path(__file__).resolve().parents[2]
+    candidates = [
+        _root / "research" / "feasibility" / "sample_level2_1D4.fits",
+        Path("research/feasibility/sample_level2_1D4.fits"),
+    ]
+    for local_fits in candidates:
+        if local_fits.exists():
+            try:
+                wave_calibrator.load_fits(local_fits)
+                print(f"[Lifespan] Loaded WCS-WAVE calibrator from {local_fits}")
+                break
+            except Exception as e:
+                print(f"[Lifespan] Notice: Could not load WCS-WAVE on startup: {e}")
     yield
     # Shutdown
 
@@ -52,3 +58,4 @@ def root():
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("backend.app.main:app", host="0.0.0.0", port=8000, reload=True)
+

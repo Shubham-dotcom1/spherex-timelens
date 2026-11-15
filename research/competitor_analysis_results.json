@@ -1,0 +1,304 @@
+{
+  "blackhole_motion_viewer": {
+    "url": "https://blackhole-spherex.vercel.app/",
+    "status_code": 200,
+    "title": "SPHEREx motion viewer",
+    "description": "Blink SPHEREx images of a patch of sky in time order to spot moving and variable objects.",
+    "scripts_count": 1,
+    "text_summary": "",
+    "bundle_findings": [
+      {
+        "script": "https://blackhole-spherex.vercel.app/assets/index-D1hMWqq2.js",
+        "size_kb": 310,
+        "keywords": [
+          "fits",
+          "irsa",
+          "sed",
+          "blink",
+          "difference",
+          "barnard",
+          "wise"
+        ],
+        "api_endpoints": []
+      }
+    ]
+  },
+  "spherex_photometry": {
+    "url": "https://spherex-photometry.vercel.app/?ra=269.4520&dec=4.6930&fov=0.5&epoch=1&band=45&mode=blink",
+    "status_code": 200,
+    "title": "SPHEREx & Planet X Explorer - Multi-Epoch Blinker & Photometry",
+    "description": "",
+    "scripts_count": 1,
+    "text_summary": "",
+    "bundle_findings": [
+      {
+        "script": "https://spherex-photometry.vercel.app/assets/index-pZoAuIKe.js",
+        "size_kb": 377,
+        "keywords": [
+          "fits",
+          "irsa",
+          "tap",
+          "photometry",
+          "spectrum",
+          "sed",
+          "blink",
+          "difference",
+          "barnard",
+          "wise",
+          "planet x",
+          "subtraction"
+        ],
+        "api_endpoints": [
+          "/api/batch/photometry",
+          "/api/batch/export",
+          "https://spherex-photometry.vercel.app",
+          "https://irsa.ipac.caltech.edu/data/SPHEREx/",
+          "https://www.cosmos.esa.int/web/gaia/data-release-3",
+          "https://data.asc-csa.gc.ca/dataset/neossat",
+          "/api/diff",
+          "https://github.com/Caltech-IPAC/SPHEREx-tutorials",
+          "/api/bands"
+        ]
+      }
+    ]
+  },
+  "skytrace": {
+    "url": "https://skytrace-five.vercel.app/",
+    "status_code": 200,
+    "title": "SkyTrace | NASA SPHEREx Celestial Explorer & Transient Discovery",
+    "description": "Interactive multi-wavelength exploration of NASA SPHEREx sky observations and transient candidate discovery engine across 102 spectroscopic bands.",
+    "scripts_count": 14,
+    "text_summary": "SkyTrace NASA SPHEREx Discovery Platform NASA Space Apps Challenge 2026 Launch Explorer Planet X and SPHEREx \u2014 Multi-Epoch Astronomical Transient Engine Explore the Sky. Compare the Evidence. Investigate real multi-epoch infrared sky observations from NASA IRSA across 102 spectroscopic bands. Discover moving asteroids, ultra-cool brown dwarfs, and candidate trans-Neptunian objects through differential photometry and honest scientific evidence. Launch 3D Celestial Explorer Open Blink Comparator Engine 102 Spectroscopic Channels 0.75 \u2013 5.0 \u00b5m All-Sky 6.2\u2033 Pixel Plate Scale WCS TAN Astrometry 4 Physical SED Templates Reduced \u03c7\u00b2 Minimization QR3 NASA IRSA Data Release SIA2 & IBE Live Pipeline Featured Investigation Showcases Pre-computed Multi-Epoch Baselines Methane Ice Signature Band 88 Planet X & Kuiper Belt Search Sedna Recovery Sector ( 56.5 \u00b0, +7.9 \u00b0) Search for high-eccentricity trans-Neptunian objects and potential distant planets via characteristic solid-state CH4 surface ice absorption and high annual parallax. Predicted Distance : > 300 AU Diagnostic Band : 4.26 \u00b5m CO2/CH4 Expected Parallax : < 40 mas Launch Investigation Sub-Stellar Atmosphere Band 33 Orion Nebula Y-Dwarf Nursery M42 Active Star Formation ( 83.8 \u00b0, -5.4 \u00b0) Identify ultra-cool brown dwarfs (T < 450 K) embedded in the Orion starburst complex using differential photometry and diagnostic 1.65 \u00b5m atmospheric methane windows. Effective Temp : 380 - 450 K Molecular Features : CH4, H2O, NH3 Cataloged Passes : 48 Epochs Launch Investigation Calibration Benchmark Band 50 North Ecliptic Pole Deep Survey Continuous Viewing Zone ( 270.0 \u00b0, +66.6 \u00b0) Deepest survey pointing in the SPHEREx all-sky map with over 100 overlapping passes, serving as the benchmark for cosmic infrared background (CIB) fluctuation studies. Overlapping Passes : > 100 Passes Astrometric Error : < 0.05\u2033 RMS Primary Array : Array 3 (Ks) Launch Investigation SkyTrace Discovery Engine \u2022 NASA Space Apps Challenge 2026 \u2022 SPHEREx QR3 Data Release 3D Explorer Blink Viewer NASA IRSA",
+    "bundle_findings": [
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/fd9d1056-9ef25dd6a213bf53.js",
+        "size_kb": 168,
+        "keywords": [
+          "sed"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/117-d7a5697742cab309.js",
+        "size_kb": 121,
+        "keywords": [
+          "sed"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/main-app-d9698065e639e345.js",
+        "size_kb": 0,
+        "keywords": [],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/b536a0f1-641e02e382ea029e.js",
+        "size_kb": 547,
+        "keywords": [
+          "sed",
+          "wise"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/338-49bda0363498da21.js",
+        "size_kb": 30,
+        "keywords": [
+          "sed"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/630-d27afa07f18ed272.js",
+        "size_kb": 52,
+        "keywords": [
+          "sed"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/365-d74a0ad1bcbfc5df.js",
+        "size_kb": 10,
+        "keywords": [
+          "sed",
+          "wise",
+          "kuiper"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/213-10f87349399c4bc8.js",
+        "size_kb": 35,
+        "keywords": [
+          "planet x",
+          "transient"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/app/page-73fda9fc9b45902f.js",
+        "size_kb": 11,
+        "keywords": [
+          "irsa",
+          "photometry",
+          "sed",
+          "blink",
+          "planet x",
+          "kuiper",
+          "transient"
+        ],
+        "api_endpoints": [
+          "https://irsa.ipac.caltech.edu"
+        ]
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/919-5886b33232dcd5c6.js",
+        "size_kb": 16,
+        "keywords": [
+          "sed"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/339-b435ecdc59d0df37.js",
+        "size_kb": 10,
+        "keywords": [
+          "sed"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/app/layout-9bea9e6571d905b3.js",
+        "size_kb": 0,
+        "keywords": [],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/polyfills-42372ed130431b0a.js",
+        "size_kb": 109,
+        "keywords": [
+          "sed",
+          "difference"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://skytrace-five.vercel.app/_next/static/chunks/webpack-c81f7fd28659d64f.js",
+        "size_kb": 3,
+        "keywords": [
+          "tap"
+        ],
+        "api_endpoints": []
+      }
+    ]
+  },
+  "driftnet": {
+    "url": "https://spherex-planet-x.vercel.app/",
+    "status_code": 200,
+    "title": "Driftnet",
+    "description": "Find what moves in real NASA SPHEREx infrared images, from asteroids to the search for Planet X.",
+    "scripts_count": 11,
+    "text_summary": "@font-face{font-stretch:62% 125%;font-family:archivo;src:url(/_next/static/immutable/media/archivo_latin_wdth_wght_normal-s.p.3b1_7etm2gpf5.woff2)format(\"woff2\");font-display:swap;font-weight:100 900}@font-face{font-family:archivo Fallback;src:local(Arial);ascent-override:85.41%;descent-override:20.43%;line-gap-override:0.0%;size-adjust:102.8%}.CrGJSa_className{font-family:archivo,archivo Fallback}.CrGJSa_variable{--font-archivo:\"archivo\", \"archivo Fallback\"}\n:root{--lightningcss-light: ;--lightningcss-dark:initial;color-scheme:dark;--bg:#102a4c;--well:#0b1f3a;--surface:#143156;--surface-2:#1a3a63;--surface-3:#214572;--border:#2e5180;--border-strong:#46699b;--text:#f2f5f9;--text-muted:#a9bcd6;--accent:#f2f5f9;--accent-strong:#fff;--on-accent:#102a4c;--link:#dce8f7;--sodium:#ffcf5a;--cool:#9cd4ff;--ir-0:#1b0c41;--ir-1:#4a0c6b;--ir-2:#781c6d;--ir-3:#a52c60;--ir-4:#cf4446;--ir-5:#ed6925;--ir-6:#fb9b06;--ir-7:#f7d13d;--ir-gradient:linear-gradient(90deg, var(--ir-0), var(--ir-1), var(--ir-2), var(--ir-3), var(--ir-4), var(--ir-5), var(--ir-6), var(--ir-7));--status-known:#9cd4ff;--status-unexplained:#ffd166;--status-artifact:#a3b1c6;--status-pair:#d9c2ff;--status-simulated:#ff8ae6;--track:#7cf0c8;--predicted:#f2f5f9;--no-data:repeating-linear-gradient(135deg, #12284a 0 5px, #0b1f3a 5px 10px);--ok:#7cf0c8;--warning:#ffd166;--danger:#ff8a80;--font-sans:var(--font-archivo), system-ui, -apple-system, \"Segoe UI\", sans-serif;--font-display:var(--font-sans);--font-mono:var(--font-sans);--stretch-display:112%;--stretch-data:87.5%;--text-xs:.75rem;--text-sm:.875rem;--text-md:1rem;--text-lg:1.3125rem;--text-xl:1.5rem;--text-2xl:2.25rem;--text-3xl:3rem;--text-4xl:clamp(2.25rem, 6.5vw, 4.5rem);--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-6:24px;--space-8:32px;--space-12:48px;--space-16:64px;--radius:4px;--radius-sm:3px;--radius-pill:999px;--touch:44px;--gutter:16px;--content-max:1180px;--shadow:none;--glow:0 0 0 1px var(--sodium);--ease-out:cubic-bezier(.2, .7, .2, 1);--dur:.18s;--dur-slow:.42s}@media (min-width:768px){:root{--gutter:32px}}*,:before,:after{box-sizing:border-box}html{-moz-text-size-adjust:100%;text-size-adjust:100%}body{background:var(--bg);min-height:100vh;color:var(--text);font-family:var(--font-sans);font-size:var(--text-md);flex-direction:column;margin:0;line-height:1.5;display:flex;overflow-x:hidden}h1,h2,h3{font-family:var(--font-display);font-stretch:var(--stretch-display);letter-spacing:-.012em;margin:0 0 var(--space-3);text-wra",
+    "bundle_findings": [
+      {
+        "script": "https://spherex-planet-x.vercel.app/_next/static/immutable/chunks/0meshd4c712hl.js",
+        "size_kb": 28,
+        "keywords": [
+          "sed"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://spherex-planet-x.vercel.app/_next/static/immutable/chunks/0c0zc8-0pgebw.js",
+        "size_kb": 224,
+        "keywords": [
+          "sed"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://spherex-planet-x.vercel.app/_next/static/immutable/chunks/18nfvx-ze8ajb.js",
+        "size_kb": 164,
+        "keywords": [
+          "tap",
+          "sed"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://spherex-planet-x.vercel.app/_next/static/immutable/chunks/turbopack-1cvbnb3nlabgn.js",
+        "size_kb": 9,
+        "keywords": [],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://spherex-planet-x.vercel.app/_next/static/immutable/chunks/2piszqzv-2fb2.js",
+        "size_kb": 33,
+        "keywords": [
+          "spectrum",
+          "sed",
+          "blink",
+          "simulat",
+          "planet x"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://spherex-planet-x.vercel.app/_next/static/immutable/chunks/3ugosxi8ukj1b.js",
+        "size_kb": 0,
+        "keywords": [],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://spherex-planet-x.vercel.app/_next/static/immutable/chunks/1dlpojosmi-9i.js",
+        "size_kb": 1,
+        "keywords": [],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://spherex-planet-x.vercel.app/_next/static/immutable/chunks/2d666-lqt5yw5.js",
+        "size_kb": 0,
+        "keywords": [],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://spherex-planet-x.vercel.app/_next/static/immutable/chunks/1j5zobz3dr6_n.js",
+        "size_kb": 36,
+        "keywords": [
+          "sed",
+          "blink",
+          "simulat",
+          "fake",
+          "planet x"
+        ],
+        "api_endpoints": [
+          "/api/injection",
+          "/api/guide",
+          "/api/validation/composition",
+          "/api/ask",
+          "/api/objects",
+          "/api/search",
+          "/api/survey",
+          "/api/transcribe",
+          "/api/fields"
+        ]
+      },
+      {
+        "script": "https://spherex-planet-x.vercel.app/_next/static/immutable/chunks/0c0hxoamwjsbw.js",
+        "size_kb": 109,
+        "keywords": [
+          "sed",
+          "difference"
+        ],
+        "api_endpoints": []
+      },
+      {
+        "script": "https://spherex-planet-x.vercel.app/_next/static/immutable/chunks/2c_2b2prcozy6.js",
+        "size_kb": 5,
+        "keywords": [],
+        "api_endpoints": []
+      }
+    ]
+  }
+}

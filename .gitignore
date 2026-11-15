@@ -6,6 +6,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 *.pytest_cache/
+.coverage
+htmlcov/
 
 # Large Astronomical Data & Reference Clones
 *.fits
@@ -19,13 +21,19 @@ data/raw/
 frontend/node_modules/
 node_modules/
 dist/
+frontend/dist/
 build/
 .next/
 *.tsbuildinfo
+.vite/
+frontend/.vite/
 
-# OS and Environment
+# OS, Environment & Secrets
 .env
 .env.local
+.env.*.local
+*.log
 .DS_Store
 Thumbs.db
-*.log
+.idea/
+.vscode/

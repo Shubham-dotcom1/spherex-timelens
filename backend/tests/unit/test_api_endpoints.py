@@ -133,3 +133,104 @@ def test_validation_report_endpoint(client):
     assert "H1" in h_ids
     assert "H2" in h_ids
     assert "H3" in h_ids
+
+def test_injection_endpoint(client):
+    payload = {
+        "obs_id": "sample_level2_1D4",
+        "ra": 270.203021,
+        "dec": 68.038062,
+        "injection_type": "planet_x",
+        "flux_mjy": 5.0,
+        "motion_arcsec_day": 1.2,
+        "position_angle_deg": 45.0
+    }
+    resp = client.post("/api/analysis/inject", json=payload)
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["status"] == "RECOVERED_CANDIDATE"
+    assert "sim_planet_x" in data["injected_obs_id"]
+    assert data["injected_flux_mjy"] == 5.0
+
+def test_sed_templates_endpoint(client):
+    resp = client.get("/api/analysis/sed-templates?ra=56.5&dec=7.9&target_name=Sedna%20Planet%20X")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert len(data) == 4
+    template_ids = [t["template_id"] for t in data]
+    assert "stellar_photosphere" in template_ids
+    assert "planet_x_volatile_ice" in template_ids
+    assert "cold_y_dwarf" in template_ids
+    assert "interstellar_dust_pah" in template_ids
+    # Sedna must match planet_x_volatile_ice as best fit
+    best = [t for t in data if t["is_best_fit"]][0]
+    assert best["template_id"] == "planet_x_volatile_ice"
+
+def test_catalog_crossmatch_endpoint(client):
+    # Barnard's Star Gaia match test
+    resp = client.get("/api/catalog/crossmatch?ra=269.452075&dec=4.693364")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["is_known_object"] is True
+    assert data["classification"] == "GAIA_HIGH_PROPER_MOTION_STAR"
+    assert data["gaia_match"] is not None
+    assert "Gaia DR3" in data["gaia_match"]["source_id"]
+
+def test_audit_certificate_endpoint(client):
+    resp = client.get("/api/analysis/audit-certificate?target_name=Barnard's%20Star&ra=269.452075&dec=4.693364")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert "TL-POPPER-" in data["certificate_id"]
+    assert len(data["sha256_checksum"]) == 64
+    assert len(data["hypotheses_evaluated"]) == 6
+    assert data["verdict"] == "SCIENTIFICALLY_VERIFIED"
+
+def test_stack_endpoint(client):
+    payload = {
+        "obs_ids": ["sample_level2_1D4", "sample_level2_1D4", "sample_level2_1D4", "sample_level2_1D4"],
+        "ra": 270.3317,
+        "dec": 66.5614,
+        "method": "median"
+    }
+    resp = client.post("/api/analysis/stack", json=payload)
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["n_epochs_coadded"] == 4
+    assert data["snr_gain_factor"] == 2.0
+    assert data["noise_reduction_pct"] == 50.0
+    assert "stack=median" in data["stacked_preview_url"]
+
+def test_motion_track_endpoint(client):
+    payload = {
+        "ra_deg": 269.452075,
+        "dec_deg": 4.693364,
+        "target_name": "Barnard's Star",
+        "pm_ra_mas_yr": -798.58,
+        "pm_dec_mas_yr": 10328.12,
+        "baseline_days": 183.0
+    }
+    resp = client.post("/api/analysis/motion-track", json=payload)
+    assert resp.status_code == 200
+    data = resp.json()
+    assert data["validation_status"] == "SUPPORTED"
+    assert data["total_displacement_arcsec"] > 4.5
+    assert len(data["trajectory"]) == 6
+
+def test_moving_benchmarks_endpoint(client):
+    resp = client.get("/api/analysis/moving-benchmarks")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert len(data) >= 5
+    ids = [b["id"] for b in data]
+    assert "barnards-star" in ids
+    assert "wise-0855" in ids
+    assert "asteroid-eros" in ids
+    assert "asteroid-phaethon" in ids
+    assert "planet-x-sedna" in ids
+
+def test_field_catalog_sources_endpoint(client):
+    resp = client.get("/api/catalog/field-sources?ra=269.452075&dec=4.693364&radius_arcmin=10.0")
+    assert resp.status_code == 200
+    data = resp.json()
+    assert len(data) >= 3
+    source_ids = [s["source_id"] for s in data]
+    assert any("4472832130942585856" in sid for sid in source_ids)

@@ -4,9 +4,10 @@ import time
 import threading
 from pathlib import Path
 from collections import OrderedDict
-from typing import Optional, Any, Dict
+from typing import Optional, Any, Dict, Tuple
 
-CACHE_DIR = Path("cache")
+_workspace_root = Path(__file__).resolve().parents[3]
+CACHE_DIR = _workspace_root / "cache" if (_workspace_root / "backend").exists() else Path("cache")
 FITS_CACHE_DIR = CACHE_DIR / "fits"
 PREVIEW_CACHE_DIR = CACHE_DIR / "previews"
 METADATA_CACHE_DIR = CACHE_DIR / "metadata"
@@ -75,9 +76,10 @@ class TieredCacheManager:
         if p.exists() and p.stat().st_size > 0:
             return p
         # Check research/feasibility for local downloaded files
-        feasibility_p = Path("research/feasibility") / filename
-        if feasibility_p.exists() and feasibility_p.stat().st_size > 0:
-            return feasibility_p
+        for base in [_workspace_root / "research" / "feasibility", Path("research/feasibility")]:
+            feasibility_p = base / filename
+            if feasibility_p.exists() and feasibility_p.stat().st_size > 0:
+                return feasibility_p
         return None
 
     def get_preview_path(self, filename: str) -> Path:

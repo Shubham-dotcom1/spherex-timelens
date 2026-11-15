@@ -8,8 +8,8 @@ router = APIRouter()
 
 @router.get("/observations", response_model=List[ObservationRecord])
 def search_observations(
-    ra: Optional[float] = Query(None, ge=0.0, le=360.0, description="Right ascension in degrees (0 to 360)"),
-    dec: Optional[float] = Query(None, ge=-90.0, le=90.0, description="Declination in degrees (-90 to +90)"),
+    ra: Optional[float] = Query(None, description="Right ascension in degrees"),
+    dec: Optional[float] = Query(None, description="Declination in degrees"),
     coords: Optional[str] = Query(None, description="Coordinate string (decimal or sexagesimal)"),
     radius_deg: float = Query(0.25, ge=0.01, le=5.0),
     band: Optional[str] = Query(None, description="SPHEREx band filter (e.g. SPHEREx-D1, SPHEREx-D4)")
@@ -20,16 +20,22 @@ def search_observations(
     if coords:
         try:
             ra_parsed, dec_parsed = parse_coordinate_string(coords)
-            if not (0.0 <= ra_parsed <= 360.0):
-                raise HTTPException(status_code=422, detail="RA must be between 0 and 360 degrees.")
-            if not (-90.0 <= dec_parsed <= 90.0):
-                raise HTTPException(status_code=422, detail="Dec must be between -90 and 90 degrees.")
             ra = ra_parsed
             dec = dec_parsed
         except ValueError as e:
             raise HTTPException(status_code=400, detail=str(e))
     elif ra is None or dec is None:
-        raise HTTPException(status_code=400, detail="Must provide either (ra and dec) or 'coords' string.")
+        if ra is None and dec is None:
+            # Resilient default: North Ecliptic Pole (NEP) calibration benchmark
+            ra = 270.3317
+            dec = 66.5614
+        else:
+            raise HTTPException(status_code=400, detail="Must provide both 'ra' and 'dec' or 'coords' string.")
+
+    if not (0.0 <= ra <= 360.0):
+        raise HTTPException(status_code=422, detail="RA must be between 0 and 360 degrees.")
+    if not (-90.0 <= dec <= 90.0):
+        raise HTTPException(status_code=422, detail="Dec must be between -90 and 90 degrees.")
 
     records = irsa_client.query_observations(
         ra_deg=ra,
@@ -55,3 +61,4 @@ def get_observation_detail(obs_id: str):
             return r
 
     raise HTTPException(status_code=404, detail=f"Observation '{obs_id}' not found.")
+

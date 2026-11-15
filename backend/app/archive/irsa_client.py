@@ -7,11 +7,6 @@ import certifi
 from typing import List, Optional, Dict, Any
 from astropy.time import Time
 
-# Clear corrupt or non-existent system certificate paths (e.g. from obsolete PostgreSQL installs on Windows)
-for env_var in ["CURL_CA_BUNDLE", "REQUESTS_CA_BUNDLE", "SSL_CERT_FILE"]:
-    if env_var in os.environ and not os.path.exists(os.environ[env_var]):
-        del os.environ[env_var]
-
 from backend.app.models.schemas import ObservationRecord
 from backend.app.archive.cache import cache_manager
 
@@ -249,3 +244,4 @@ class IrsaTapClient:
         return records
 
 irsa_client = IrsaTapClient()
+
